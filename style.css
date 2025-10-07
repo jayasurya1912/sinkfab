@@ -972,7 +972,30 @@
   overflow: hidden;
 }
 
+.contact-sectiona {
+  
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  color: black;
+  position: relative;
+  padding: 40px 20px;
+  z-index: 1;
+  overflow: hidden;
+}
+
 /* 🔥 Black overlay */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Adjust opacity (0.5–0.7 for darker effect) */
+  z-index: 0;
+}
+
 .contact-section::before {
   content: "";
   position: absolute;
@@ -1009,6 +1032,30 @@
   padding: 25px;
   color: #000;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+}
+
+.contacts-form-box {
+  position: relative;
+  border-radius: 12px;
+  padding: 25px;
+  color: #000;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  background: url('images/sthree.jpg') no-repeat center center/cover;
+  overflow: hidden;
+}
+
+.contacts-form-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.15); /* soft white overlay */
+  border-radius: 12px;
+  z-index: 0;
+}
+
+.contacts-form-box * {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-form-box h4 {
