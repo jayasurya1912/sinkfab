@@ -15,6 +15,17 @@
  
 </head>
 <body>
+
+  <!-- Sink Preloader Start -->
+<div id="sink-preloader">
+  <div class="sink-container">
+    <div class="water-drop"></div>
+    <div class="sink-basin"></div>
+    <p>Loading Sink Fabrication...</p>
+  </div>
+</div>
+<!-- Sink Preloader End -->
+
   
   <!-- Top Bar -->
   <div class="topbar">
@@ -967,6 +978,18 @@ Our products are exclusively engineered for Hotels, Restaurants, Industrial Kitc
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 </footer>
+
+
+<script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("sink-preloader");
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500);
+  });
+</script>
+
   
 
   <script>
