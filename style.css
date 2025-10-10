@@ -1,3 +1,7 @@
+
+body, html {
+  overflow-x: hidden;
+}
 .body
 {
   font-family: 'Poppins', sans-serif;
@@ -126,9 +130,7 @@
      .navbar-custom {
       background: #fff;
     }
-    .navbar-logo {
-      max-height: 90px;
-    }
+    
     .nav-link {
       font-weight: 700;
       color: #000;

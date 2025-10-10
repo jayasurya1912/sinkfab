@@ -48,7 +48,7 @@
   <div class="container-fluid">
     <!-- Logo (Mobile Only) -->
     <a class="navbar-brand d-lg-none" href="index.html">
-      <img src="images/mainlogo.png" alt="Logo" class="navbar-logo">
+      <img src="images/lmo.jpg" alt="Logo" class="navbar-logo">
     </a>
 
     <!-- Hamburger (sidebar trigger) -->
@@ -69,7 +69,7 @@
         <!-- Center Logo -->
         <li class="nav-item px-3">
           <a class="navbar-brand mx-5" href="#">
-            <img src="images/mainlogo.png" alt="Logo" class="navbar-logo">
+            <img src="images/lmo.jpg" alt="Logo" class="navbar-logo">
           </a>
         </li>
 
@@ -85,7 +85,7 @@
 <!-- Mobile Offcanvas Menu -->
 <div class="offcanvas offcanvas-start offcanvas-custom" tabindex="-1" id="mobileMenu">
   <div class="offcanvas-header">
-    <h5 class="offcanvas-title"><img src="images/mainlogo.png" style="align-items: center;" width="100px" alt=""></h5>
+    <h5 class="offcanvas-title"><img src="images/lmo.jpg" style="align-items: center;" width="100px" alt=""></h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">
@@ -129,19 +129,22 @@
         <div class="col-lg-5 col-md-12">
           <div class="contacts-form-box">
             <h4 style="color: white;text-align: center;margin-bottom: 10px;">GET IN TOUCH!</h4>
-            <form>
-              <input type="text" class="form-control" placeholder="Your Name">
-              <div class="row">
-                <div class="col-md-6">
-                  <input type="text" class="form-control" placeholder="Your Mobile Number">
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Your Email">
-                </div>
+                      <form id="fire-form">
+            <input type="text" id="fire-name" class="form-control mb-3" placeholder="Your Name" required>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <input type="text" id="fire-mobile" class="form-control" placeholder="Your Mobile Number" required>
               </div>
-              <textarea class="form-control" rows="3" placeholder="Your Message"></textarea>
-              <button type="submit" class="btn btn-custom mt-3">Send Message</button>
-            </form>
+              <div class="col-md-6">
+                <input type="email" id="fire-email" class="form-control" placeholder="Your Email" required>
+              </div>
+            </div>
+
+            <textarea id="fire-message" class="form-control mb-3" rows="3" placeholder="Your Message" required></textarea>
+
+            <button type="submit" class="btn btn-custom">Send Message</button>
+          </form>
           </div>
         </div>
 
@@ -220,14 +223,10 @@
         <div class="col-md-3 mb-4">
           <h5>Contact Us</h5>
           <p>
-            Srihari Kitchen Equipments Pvt. Ltd,<br>
-            No 3, Bharathi Street, Omsakthi Nagar,<br>
-            Chinnavedampatti, Coimbatore - 641049,<br>
-            Tamil Nadu, India
+            Ground Floor Flat 05 Annapoorneshwari nagara near vijay design thigalaraplya main road Bengaluru - 560058
           </p>
-          <p><i class="fa fa-phone"></i> +91 98432 11332</p>
-          <p><i class="fa fa-mobile-alt"></i> +91 94435 11332 / 96774 66424</p>
-          <p><i class="fa fa-envelope"></i> sales@sriharikitchenequipments.com</p>
+          <p><i class="fa fa-phone"></i> +91 988661854</p>
+          <p><i class="fa fa-envelope"></i> info@sinkfab.com</p>
           <div class="footer-social">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -244,7 +243,7 @@
   <div class="footer-bottom text-center text-md-start">
     <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
       <p class="mb-2 mb-md-0">© 2025 All Rights Reserved. Srihari Kitchen Equipments.</p>
-      <p class="mb-0">Designed & Developed by Weone Digital</p>
+      <p class="mb-0">Designed & Developed by Webads Digital</p>
     </div>
   </div>
 </footer>
@@ -256,6 +255,35 @@
     setTimeout(() => {
       preloader.style.display = "none";
     }, 400); // hides in less than half a second
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("kErWFtIamyEzv-iDz"); // 🔑 Replace with your EmailJS Public Key
+  })();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("fire-form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const templateParams = {
+        full_name: document.getElementById("fire-name").value,
+        mobile: document.getElementById("fire-mobile").value,
+        email: document.getElementById("fire-email").value,
+        message: document.getElementById("fire-message").value,
+      };
+
+      emailjs.send("service_fe0pwio", "template_2g1vrwu", templateParams)
+        .then(function () {
+          alert(" Thank you! Our team will get back to you shortly.");
+          form.reset();
+        }, function (error) {
+          alert("❌ Failed to send message: " + JSON.stringify(error));
+        });
+    });
   });
 </script>
 
