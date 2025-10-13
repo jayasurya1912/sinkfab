@@ -23,6 +23,11 @@ body, html {
   color: #fff;
   font-family: 'Poppins', sans-serif;
 }
+.navbar-logo
+{
+  background-color: #164185;
+  width: 95px;
+}
 
 .sink-container {
   position: relative;
